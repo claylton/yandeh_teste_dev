@@ -1,34 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:yandeh_teste_dev/models/painel_card_item_model.dart';
-import 'package:yandeh_teste_dev/views/themes/color_theme.dart';
 import 'package:yandeh_teste_dev/views/widgets/painel/painel_card_widget.dart';
+import 'package:yandeh_teste_dev/views/widgets/video_player/video_player_widget.dart';
 
-class PainelHomeWidget extends StatefulWidget {
-  const PainelHomeWidget({super.key});
+class PainelHomeWidget extends StatelessWidget {
+  final List<PainelCardItemModel> cards;
 
-  @override
-  State<PainelHomeWidget> createState() => _PainelHomeWidgetState();
-}
-
-class _PainelHomeWidgetState extends State<PainelHomeWidget> {
-  final List<PainelCardItemModel> cards = [
-    PainelCardItemModel(
-      title: 'Legumes',
-      image: 'assets/images/legumes_image.png',
-      color: ColorTheme.greenDarkColor,
-    ),
-    PainelCardItemModel(
-      title: 'Frutas',
-      image: 'assets/images/frutas_image.png',
-      color: ColorTheme.greenLightColor,
-    ),
-    PainelCardItemModel(
-      title: 'Temperos',
-      image: 'assets/images/temperos_image.png',
-      color: ColorTheme.salmonColor,
-    ),
-  ];
+  const PainelHomeWidget({super.key, required this.cards});
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +33,16 @@ class _PainelHomeWidgetState extends State<PainelHomeWidget> {
                       child: ClipRRect(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(40)),
-                        child: SizedBox(
-                          height: 280,
+                        child: Container(
+                          constraints: const BoxConstraints(
+                            minWidth: 300,
+                            maxWidth: 1168,
+                          ),
                           width: MediaQuery.of(context).size.width * 0.95,
-                          child: Image.asset(
-                            'assets/gifs/home_page_gif.gif',
-                            fit: BoxFit.cover,
+                          height: 280,
+                          child: const VideoPlayerWidget(
+                            url:
+                                'https://s3-figma-videos-production-sig.figma.com/video/1033378068762196313/TEAM/0775/4c01/-be09-40d0-b052-d9b26d84f2a0?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p4kSxwbSa9HXCJBbUVrPI-7dYPFrDyf6A1pJZ8cAVO0fALD7Pvl8NB93lQ33d79XlJJyGL9Ns3dRm7CoHp5kis2gnyU2kxRFq6wfybwv3lEbPawuMHJdZtkL5-qqOG2SwA6RXknq7WuojwtJ4SnUMJ-BeJ~nk4tPRXaTKBI1plstGIMweH3YYo67~p9EKydlFbbJG2lLSLCjl8Ni1H7dgaauTw~7752Htz12HT3lOA6i5K2IaE9bCPKtcyxZtKn~uy18p82CqvDYlOhxijCm2bBuT1czQT5YntwXEkgtAIKlmkGCZlOB0k1o3lKC7iWYyL~BsfyHuQbIzH9ur2ri8Q__',
                           ),
                         ),
                       ),
