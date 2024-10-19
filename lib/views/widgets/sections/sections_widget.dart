@@ -20,6 +20,7 @@ class _SectionsWidgetState extends State<SectionsWidget> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(
+        margin: const EdgeInsets.only(bottom: 20),
         height: 500,
         constraints: const BoxConstraints(
           minWidth: 300,

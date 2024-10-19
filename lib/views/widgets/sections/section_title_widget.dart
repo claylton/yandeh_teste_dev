@@ -16,13 +16,13 @@ class SectionTitleWidget extends StatelessWidget {
             color: ColorTheme.whiteColor,
             borderRadius: BorderRadius.circular(999),
           ),
-          margin: EdgeInsets.symmetric(vertical: 13, horizontal: 16),
-          padding: EdgeInsets.only(left: 16),
+          margin: const EdgeInsets.symmetric(vertical: 13, horizontal: 16),
+          padding: const EdgeInsets.only(left: 16),
           child: Row(
             children: [
               Text(
                 section.title,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
               ),
             ],
           ),
@@ -34,18 +34,18 @@ class SectionTitleWidget extends StatelessWidget {
           color: ColorTheme.whiteColor,
           borderRadius: BorderRadius.circular(999),
         ),
-        padding: EdgeInsets.only(left: 16),
-        margin: EdgeInsets.all(24),
+        padding: const EdgeInsets.only(left: 16),
+        margin: const EdgeInsets.all(24),
         child: Row(
           children: [
             Text(
               section.title,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Text(
               section.subtitle,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             const Expanded(child: SizedBox()),
             Container(
@@ -54,8 +54,8 @@ class SectionTitleWidget extends StatelessWidget {
                 border: Border.all(),
                 borderRadius: BorderRadius.circular(24),
               ),
-              margin: EdgeInsets.symmetric(horizontal: 12),
-              padding: EdgeInsets.symmetric(horizontal: 12),
+              margin: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               child:
                   Center(child: Text('Ver ${section.products.length} items')),
             )
