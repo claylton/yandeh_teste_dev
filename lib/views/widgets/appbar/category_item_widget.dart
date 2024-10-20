@@ -4,6 +4,7 @@ import 'package:yandeh_teste_dev/views/themes/color_theme.dart';
 class CategoryItemWidget extends StatelessWidget {
   final String title;
   final bool isSelect;
+  final bool isWeb;
   final void Function()? onTap;
 
   const CategoryItemWidget({
@@ -11,6 +12,7 @@ class CategoryItemWidget extends StatelessWidget {
     required this.title,
     required this.isSelect,
     required this.onTap,
+    required this.isWeb,
   });
 
   @override
@@ -21,20 +23,40 @@ class CategoryItemWidget extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
           decoration: BoxDecoration(
-            color: isSelect ? ColorTheme.blueDarkColor : ColorTheme.whiteColor,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: ColorTheme.greyLightColor,
-            ),
+            color: isSelect && !isWeb ? ColorTheme.redCardProductColor : ColorTheme.whiteColor,
+            borderRadius: BorderRadius.circular(24),
           ),
-          child: Text(
-            title,
-            style: TextStyle(
-              height: 0,
-              fontSize: 14,
-              color: isSelect ? ColorTheme.whiteColor : ColorTheme.blackColor,
-            ),
-          ),
+          child: isWeb
+              ? Container(
+                width: 170,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.reorder,
+                        size: 16,
+                      ),
+                      Text(
+                        title,
+                        style: TextStyle(
+                          height: 0,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: ColorTheme.blueDarkColor,
+                        ),
+                      ),
+                    ],
+                  ),
+              )
+              : Text(
+                  title,
+                  style: TextStyle(
+                    height: 0,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: isSelect ? ColorTheme.whiteColor : ColorTheme.blackColor,
+                  ),
+                ),
         ),
       ),
     );
