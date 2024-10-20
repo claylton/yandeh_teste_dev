@@ -58,8 +58,9 @@ class ProductCardWidget extends StatelessWidget {
                             color: ColorTheme.redCardProductColor,
                             shape: BoxShape.circle,
                           ),
-                          child: const Icon(
-                            Icons.add,
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.add),
                             color: ColorTheme.whiteColor,
                           ),
                         ),
