@@ -99,10 +99,8 @@ class _BannerDividerWidgetState extends State<BannerDividerWidget> {
                                 });
                               },
                               child: AnimatedContainer(
-                                width: _isHovered ? 110 : 160,
-                                // height: _isHovered ? 150 : 28,
-                                duration: Duration(milliseconds: 300),
-                                // curve: Curves.bounceInOut,
+                                width: isMobile ? 96 : _isHovered ? 110 : 160,
+                                duration: const Duration(milliseconds: 300),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(40),
                                   border: Border.all(color: ColorTheme.whiteColor),
