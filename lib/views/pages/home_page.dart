@@ -35,12 +35,12 @@ class _HomePageState extends State<HomePage> {
             SectionsWidget(section: SectionsItemModel.placeholder()),
             SectionsWidget(section: SectionsItemModel.placeholder()),
             BannerDividerWidget(
-              bannerDivider: BannerDividerItemModel.placeholder(),
+              bannerDivider: BannerDividerItemModel.queridinhos(),
             ),
             SectionsWidget(section: SectionsItemModel.placeholder()),
             SectionsWidget(section: SectionsItemModel.placeholder()),
             BannerDividerWidget(
-              bannerDivider: BannerDividerItemModel.placeholder(),
+              bannerDivider: BannerDividerItemModel.hortifruti(),
             ),
             SectionsWidget(section: SectionsItemModel.placeholder()),
             SectionsWidget(section: SectionsItemModel.placeholder()),

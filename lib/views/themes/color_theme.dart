@@ -11,4 +11,6 @@ class ColorTheme {
   static const Color blueLightCardProductColor = Color(0XFFE5F6FF);
   static const Color greyCardProductColor = Color(0XFF767B7D);
   static const Color redCardProductColor = Color(0XFFE65235);
+  static const Color redBannerColor = Color(0XFFFE4B02);
+  static const Color greenBannerColor = Color(0XFF72C532);
 }

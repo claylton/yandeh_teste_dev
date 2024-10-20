@@ -3,9 +3,16 @@ import 'package:yandeh_teste_dev/models/banner_divider_item_model.dart';
 import 'package:yandeh_teste_dev/views/themes/color_theme.dart';
 import 'package:yandeh_teste_dev/views/widgets/video_player/video_player_widget.dart';
 
-class BannerDividerWidget extends StatelessWidget {
+class BannerDividerWidget extends StatefulWidget {
   final BannerDividerItemModel bannerDivider;
   const BannerDividerWidget({super.key, required this.bannerDivider});
+
+  @override
+  State<BannerDividerWidget> createState() => _BannerDividerWidgetState();
+}
+
+class _BannerDividerWidgetState extends State<BannerDividerWidget> {
+  bool _isHovered = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +44,7 @@ class BannerDividerWidget extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.95,
                   height: containerHeight,
                   child: VideoPlayerWidget(
-                    url: bannerDivider.url,
+                    url: widget.bannerDivider.url,
                   ),
                 ),
                 Align(
@@ -53,14 +60,13 @@ class BannerDividerWidget extends StatelessWidget {
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                color: ColorTheme.redCardProductColor,
+                                color: widget.bannerDivider.color,
                                 borderRadius: BorderRadius.circular(40),
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 32, vertical: 2),
+                              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 2),
                               child: Center(
                                 child: Text(
-                                  bannerDivider.title,
+                                  widget.bannerDivider.title,
                                   style: TextStyle(
                                     color: ColorTheme.whiteColor,
                                     fontSize: titleFontSize,
@@ -70,10 +76,9 @@ class BannerDividerWidget extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 8.0),
+                              padding: const EdgeInsets.symmetric(vertical: 8.0),
                               child: Text(
-                                bannerDivider.subtitle,
+                                widget.bannerDivider.subtitle,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   color: ColorTheme.whiteColor,
@@ -82,21 +87,35 @@ class BannerDividerWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                border:
-                                    Border.all(color: ColorTheme.whiteColor),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 24, vertical: 4),
-                              child: Center(
-                                child: Text(
-                                  "Ver mais",
-                                  style: TextStyle(
-                                    color: ColorTheme.whiteColor,
-                                    fontSize: seeMoreFontSize,
-                                    fontWeight: FontWeight.w500,
+                            MouseRegion(
+                              onEnter: (_) {
+                                setState(() {
+                                  _isHovered = true;
+                                });
+                              },
+                              onExit: (_) {
+                                setState(() {
+                                  _isHovered = false;
+                                });
+                              },
+                              child: AnimatedContainer(
+                                width: _isHovered ? 110 : 160,
+                                // height: _isHovered ? 150 : 28,
+                                duration: Duration(milliseconds: 300),
+                                // curve: Curves.bounceInOut,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(40),
+                                  border: Border.all(color: ColorTheme.whiteColor),
+                                ),
+                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+                                child: Center(
+                                  child: Text(
+                                    "Ver mais",
+                                    style: TextStyle(
+                                      color: ColorTheme.whiteColor,
+                                      fontSize: seeMoreFontSize,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),
