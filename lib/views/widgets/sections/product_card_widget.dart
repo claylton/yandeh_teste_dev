@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:yandeh_teste_dev/models/product_card_item_model.dart';
+import 'package:yandeh_teste_dev/views/extensions/string_extension.dart';
 import 'package:yandeh_teste_dev/views/themes/color_theme.dart';
 
 class ProductCardWidget extends StatelessWidget {
@@ -39,9 +42,9 @@ class ProductCardWidget extends StatelessWidget {
                           SizedBox(
                             width: 182,
                             height: 182,
-                            child: Image.asset(
-                              'assets/images/quiabo_image.png',
-                              fit: BoxFit.contain,
+                            child: Image.network(
+                              'https://picsum.photos/182/${182 + Random().nextInt(20)}',
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ],
@@ -85,7 +88,8 @@ class ProductCardWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        product.name,
+                        product.name.captalizeWords(),
+                        maxLines: 2,
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,

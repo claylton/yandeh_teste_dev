@@ -1,6 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
 class ProductCardItemModel {
   final int id;
   final String name;
@@ -59,20 +56,15 @@ class ProductCardItemModel {
   factory ProductCardItemModel.fromMap(Map<String, dynamic> map) {
     return ProductCardItemModel(
       id: map['id'] as int,
-      name: map['name'] as String,
-      sku: map['sku'] as String,
-      category: map['category'] as String,
-      package: map['package'] as String,
-      ean: map['ean'] as String,
+      name: map['name'].toString(),
+      sku: map['sku'].toString(),
+      category: map['category'].toString(),
+      package: map['package'].toString(),
+      ean: map['ean'].toString(),
       unitContent: map['unitContent'] as double,
-      unitMeasure: map['unitMeasure'] as String,
+      unitMeasure: map['unitMessure'].toString(),
       packageQuantity: map['packageQuantity'] as int,
-      price: map['price'] as double,
+      price: double.tryParse(map['price']) ?? 0,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory ProductCardItemModel.fromJson(String source) =>
-      ProductCardItemModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }

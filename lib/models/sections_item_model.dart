@@ -1,8 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-
 import 'package:yandeh_teste_dev/models/product_card_item_model.dart';
 import 'package:yandeh_teste_dev/views/themes/color_theme.dart';
 
@@ -50,21 +46,16 @@ class SectionsItemModel {
     };
   }
 
-  factory SectionsItemModel.fromMap(Map<String, dynamic> map) {
+  factory SectionsItemModel.fromMap(Map<String, dynamic> map, Color color) {
     return SectionsItemModel(
-      title: map['title'] as String,
-      subtitle: map['subtitle'] as String,
-      backgroundColor: Color(map['backgroundColor'] as int),
+      title: map['section'] as String,
+      subtitle: map['description'] as String,
+      backgroundColor: color,
       products: List<ProductCardItemModel>.from(
-        (map['products'] as List<int>).map<ProductCardItemModel>(
+        (map['products'] as List<dynamic>).map<ProductCardItemModel>(
           (x) => ProductCardItemModel.fromMap(x as Map<String, dynamic>),
         ),
       ),
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory SectionsItemModel.fromJson(String source) =>
-      SectionsItemModel.fromMap(json.decode(source) as Map<String, dynamic>);
 }
