@@ -107,7 +107,7 @@ class ProductCardWidget extends StatelessWidget {
                                 horizontal: 4, vertical: 1),
                             child: Center(
                               child: Text(
-                                '${product.unitContent.toString()} ${product.unitMeasure}',
+                                '${product.unitContent} ${product.unitMeasure}',
                                 style: const TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,

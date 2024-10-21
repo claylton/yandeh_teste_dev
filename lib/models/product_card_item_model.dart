@@ -5,7 +5,7 @@ class ProductCardItemModel {
   final String category;
   final String package;
   final String ean;
-  final double unitContent;
+  final String unitContent;
   final String unitMeasure;
   final int packageQuantity;
   final double price;
@@ -31,7 +31,7 @@ class ProductCardItemModel {
       category: "APERITIVOS E OLEAGINOSAS A GRANEL",
       package: "UNIDADE",
       ean: "0000000000000",
-      unitContent: 100.0,
+      unitContent: "100",
       unitMeasure: "G",
       packageQuantity: 0,
       price: 2.13,
@@ -61,7 +61,7 @@ class ProductCardItemModel {
       category: map['category'].toString(),
       package: map['package'].toString(),
       ean: map['ean'].toString(),
-      unitContent: map['unitContent'] as double,
+      unitContent: map['unitContent'].toString(),
       unitMeasure: map['unitMessure'].toString(),
       packageQuantity: map['packageQuantity'] as int,
       price: double.tryParse(map['price']) ?? 0,
