@@ -63,7 +63,8 @@ class _BannerDividerWidgetState extends State<BannerDividerWidget> {
                                 color: widget.bannerDivider.color,
                                 borderRadius: BorderRadius.circular(40),
                               ),
-                              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 2),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 32, vertical: 2),
                               child: Center(
                                 child: Text(
                                   widget.bannerDivider.title,
@@ -76,7 +77,8 @@ class _BannerDividerWidgetState extends State<BannerDividerWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 8.0),
                               child: Text(
                                 widget.bannerDivider.subtitle,
                                 textAlign: TextAlign.center,
@@ -99,13 +101,19 @@ class _BannerDividerWidgetState extends State<BannerDividerWidget> {
                                 });
                               },
                               child: AnimatedContainer(
-                                width: isMobile ? 96 : _isHovered ? 110 : 160,
-                                duration: const Duration(milliseconds: 300),
+                                width: isMobile
+                                    ? 96
+                                    : _isHovered
+                                        ? 110
+                                        : 160,
+                                duration: Duration(milliseconds: 300),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(40),
-                                  border: Border.all(color: ColorTheme.whiteColor),
+                                  border:
+                                      Border.all(color: ColorTheme.whiteColor),
                                 ),
-                                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 24, vertical: 4),
                                 child: Center(
                                   child: Text(
                                     "Ver mais",

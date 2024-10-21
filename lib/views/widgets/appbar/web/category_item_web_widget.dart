@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:yandeh_teste_dev/views/themes/color_theme.dart';
 
 class CategoryItemWebWidget extends StatefulWidget {
@@ -101,9 +102,10 @@ class _CategoryItemWebWidgetState extends State<CategoryItemWebWidget> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Icon(
-                          Icons.reorder,
-                          size: 16,
+                        SvgPicture.asset(
+                          'assets/icons/list_icon.svg',
+                          height: 18,
+                          width: 18,
                         ),
                         Text(
                           widget.title,
@@ -120,9 +122,9 @@ class _CategoryItemWebWidgetState extends State<CategoryItemWebWidget> {
                 : Text(
                     widget.title,
                     style: TextStyle(
-                      height: 0,
+                      // height: 0,
                       fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: widget.isSelect ? FontWeight.w400 : FontWeight.w600,
                       color: getTextColor(),
                     ),
                   ),

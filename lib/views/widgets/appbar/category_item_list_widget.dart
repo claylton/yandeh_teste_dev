@@ -26,7 +26,7 @@ class _CategoryItemListWidgetState extends State<CategoryItemListWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         height: 40,
         width: MediaQuery.of(context).size.width * (widget.isWeb ? 0.65 : 0.95),
         child: ListView.separated(

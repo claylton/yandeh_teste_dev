@@ -24,7 +24,6 @@ class _CategoryItemMobileWidgetState extends State<CategoryItemMobileWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     isHovered = false;
     isSelected = widget.isSelect;

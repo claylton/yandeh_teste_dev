@@ -16,12 +16,11 @@ class AppBarWebWidget extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.9,
+            width: MediaQuery.of(context).size.width * 0.65,
             constraints: const BoxConstraints(
               minWidth: 300,
               maxWidth: 1608,
             ),
-            // color: Colors.red,
             child: Row(
               children: [
                 SvgPicture.asset(
@@ -51,16 +50,16 @@ class AppBarWebWidget extends StatelessWidget {
                       focusNode: myFocusNode,
                       decoration: InputDecoration(
                         labelText: 'Buscar produtos',
-                        labelStyle: TextStyle(
-                          color: ColorTheme.blackColor.withOpacity(0.7),
-                        ),
+                        labelStyle: const TextStyle(color: ColorTheme.greyDarkColor, fontWeight: FontWeight.w400),
                         border: InputBorder.none,
                         suffixIcon: IconButton(
                           onPressed: () {},
-                          icon: const Icon(Icons.search),
+                          icon: const Icon(
+                            Icons.search,
+                            color: ColorTheme.greyIconSearchColor,
+                          ),
                         ),
-                        contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 10),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                       ),
                     ),
                   ),

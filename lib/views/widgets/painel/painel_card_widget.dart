@@ -13,8 +13,7 @@ class PainelCardWidget extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Container(
-          width: 208,
-          height: 112,
+          constraints: const BoxConstraints(minWidth: 208, minHeight: 112, maxWidth: 280, maxHeight: 115),
           decoration: BoxDecoration(
             color: card.color,
             borderRadius: BorderRadius.circular(20),
@@ -31,6 +30,7 @@ class PainelCardWidget extends StatelessWidget {
                       color: ColorTheme.whiteColor,
                       fontSize: 25,
                       fontWeight: FontWeight.w700,
+                      letterSpacing: 1,
                     ),
                   ),
                 ),

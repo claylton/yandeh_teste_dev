@@ -40,12 +40,20 @@ class SectionTitleWidget extends StatelessWidget {
           children: [
             Text(
               section.title,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+              style: const TextStyle(
+                color: ColorTheme.blueDarkColor,
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+              ),
             ),
             const SizedBox(width: 16),
             Text(
               section.subtitle,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              style: const TextStyle(
+                color: ColorTheme.blueDarkColor,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const Expanded(child: SizedBox()),
             Container(
@@ -56,8 +64,7 @@ class SectionTitleWidget extends StatelessWidget {
               ),
               margin: const EdgeInsets.symmetric(horizontal: 12),
               padding: const EdgeInsets.symmetric(horizontal: 12),
-              child:
-                  Center(child: Text('Ver ${section.products.length} items')),
+              child: Center(child: Text('Ver ${section.products.length} items')),
             )
           ],
         ),

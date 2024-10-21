@@ -80,7 +80,7 @@ flutter:
   fonts:
     - family: SF_Pro_Display
       fonts:
-        - asset: assets/fonts/SF-Pro-Display-Bold.otf
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+        - asset: assets/fonts/SF-Pro-Display-Bold.ttf
+          weight: 600
+        - asset: assets/fonts/SF-Pro-Display-Semibold.ttf
+          weight: 500

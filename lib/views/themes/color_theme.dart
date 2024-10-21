@@ -2,6 +2,9 @@ import 'dart:ui';
 
 class ColorTheme {
   static const Color greyLightColor = Color(0XFF79747E);
+  static const Color greyDarkColor = Color(0XFF322F35);
+  static const Color greyIconSearchColor = Color(0XFF49454F);
+  static const Color greyCNPJWebColor = Color(0XFF464A4C);
   static const Color blueDarkColor = Color(0XFF04283B);
   static const Color whiteColor = Color(0XFFFFFFFF);
   static const Color blackColor = Color(0XFF1D1B20);

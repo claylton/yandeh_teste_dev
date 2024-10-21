@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:yandeh_teste_dev/models/product_card_item_model.dart';
 import 'package:yandeh_teste_dev/views/extensions/string_extension.dart';
@@ -85,6 +84,7 @@ class ProductCardWidget extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
+                          color: ColorTheme.blueDarkColor
                         ),
                       ),
                       Text(
@@ -93,6 +93,7 @@ class ProductCardWidget extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
+                          color: ColorTheme.blackColor,
                         ),
                       ),
                       Row(
@@ -125,12 +126,14 @@ class ProductCardWidget extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 12),
-                      const SizedBox(
+                      SizedBox(
                         height: 40,
                         child: Center(
                           child: Text(
-                            "Caixa c/ 20kg",
-                            style: TextStyle(
+                            product.package == 'UNIDADE'
+                            ? product.package.captalize()
+                            : "${product.package.captalize()} c/${product.packageQuantity}",
+                            style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                             ),
