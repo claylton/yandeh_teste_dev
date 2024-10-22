@@ -33,11 +33,7 @@ class CartButtonWidget extends StatelessWidget {
                       ),
                       Text(
                         '07.666.444/7773-29',
-                        style: TextStyle(
-                          color: ColorTheme.greyCNPJWebColor,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14
-                        ),
+                        style: TextStyle(color: ColorTheme.greyCNPJWebColor, fontWeight: FontWeight.w500, fontSize: 14),
                       ),
                     ],
                   ),
@@ -50,7 +46,7 @@ class CartButtonWidget extends StatelessWidget {
               ],
             ),
           ),
-        Container(
+        SizedBox(
           height: 40,
           width: show ? 136 : null,
           child: FloatingActionButton(
@@ -69,8 +65,8 @@ class CartButtonWidget extends StatelessWidget {
                   width: 18,
                 ),
                 if (show)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 9.5),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 9.5),
                     child: Text(
                       'Carrinho',
                       style: TextStyle(

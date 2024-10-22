@@ -58,13 +58,20 @@ class SectionTitleWidget extends StatelessWidget {
             const Expanded(child: SizedBox()),
             Container(
               height: 32,
+              width: 104,
               decoration: BoxDecoration(
                 border: Border.all(),
                 borderRadius: BorderRadius.circular(24),
               ),
               margin: const EdgeInsets.symmetric(horizontal: 12),
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Center(child: Text('Ver ${section.products.length} items')),
+              child: FloatingActionButton(
+                onPressed: () => Navigator.pushReplacementNamed(context, '/'),
+                backgroundColor: ColorTheme.whiteColor,
+                child: Text(
+                  'Ver ${section.products.length} items',
+                  style: const TextStyle(fontSize: 14),
+                ),
+              ),
             )
           ],
         ),

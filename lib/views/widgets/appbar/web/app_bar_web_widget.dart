@@ -53,7 +53,7 @@ class AppBarWebWidget extends StatelessWidget {
                         labelStyle: const TextStyle(color: ColorTheme.greyDarkColor, fontWeight: FontWeight.w400),
                         border: InputBorder.none,
                         suffixIcon: IconButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.pushReplacementNamed(context, '/'),
                           icon: const Icon(
                             Icons.search,
                             color: ColorTheme.greyIconSearchColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yandeh_teste_dev/controllers/sections_controller.dart';
 import 'package:yandeh_teste_dev/models/category_item_model.dart';
 import 'package:yandeh_teste_dev/views/widgets/appbar/mobile/category_item_mobile_widget.dart';
 import 'package:yandeh_teste_dev/views/widgets/appbar/web/category_item_web_widget.dart';
@@ -13,7 +14,7 @@ class CategoryItemListWidget extends StatefulWidget {
 
 class _CategoryItemListWidgetState extends State<CategoryItemListWidget> {
   int categorySelected = 2;
-
+  final SectionsController controller = SectionsController();
   List<CategoryItemModel> listCategory = [
     CategoryItemModel(title: 'Todas as categorias'),
     CategoryItemModel(title: 'Campanhas'),
@@ -41,14 +42,14 @@ class _CategoryItemListWidgetState extends State<CategoryItemListWidget> {
               return CategoryItemWebWidget(
                 title: listCategory[index].title,
                 isSelect: index == categorySelected,
-                onTap: () {},
+                onTap: () => Navigator.pushReplacementNamed(context, '/'),
                 isFirst: index == 0,
               );
             }
             return CategoryItemMobileWidget(
               title: listCategory[index].title,
               isSelect: index == categorySelected,
-              onTap: () {},
+              onTap: () => Navigator.pushReplacementNamed(context, '/'),
             );
           },
         ),
