@@ -113,8 +113,7 @@ class _SectionsWidgetState extends State<SectionsWidget> {
                   child: Center(
                       child: Transform(
                     alignment: Alignment.center,
-                    transform: Matrix4.identity()
-                      ..scale(-1.0, 1.0),
+                    transform: Matrix4.identity()..scale(-1.0, 1.0),
                     child: const Icon(
                       Icons.arrow_forward_ios,
                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yandeh_teste_dev/controllers/sections_controller.dart';
+import 'package:yandeh_teste_dev/database/product_database.dart';
 import 'package:yandeh_teste_dev/models/banner_divider_item_model.dart';
 import 'package:yandeh_teste_dev/models/painel_card_item_model.dart';
 import 'package:yandeh_teste_dev/models/sections_item_model.dart';
@@ -20,8 +21,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final SectionsController controller = SectionsController();
-  List<SectionsItemModel> sections = [];
+  final SectionsController controller = SectionsController(ProductDatabase());
+
   bool? original;
   bool? isFirstCall;
 
@@ -36,10 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _resetFirstCall() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('first_call', true); 
-    setState(() {
-      isFirstCall = true;
-    });
+    await prefs.setBool('first_call', true);
   }
 
   Future<void> _checkIfFirstCall() async {
@@ -47,17 +45,10 @@ class _HomePageState extends State<HomePage> {
     isFirstCall = prefs.getBool('first_call');
 
     if (isFirstCall == null || isFirstCall == true) {
-      loadSections(true);
-      setState(() {
-        isFirstCall = true;
-      });
+      controller.loadSections(true);
       prefs.setBool('first_call', false);
     } else {
-      loadSections(false);
-      setState(() {
-        isFirstCall = false;
-      });
-
+      controller.loadSections(false);
     }
   }
 
@@ -65,13 +56,6 @@ class _HomePageState extends State<HomePage> {
   void didChangeDependencies() {
     _checkIfFirstCall();
     super.didChangeDependencies();
-  }
-
-  Future<void> loadSections(bool original) async {
-    sections = await controller.getSections(original: original);
-    setState(() {
-      sections = sections.where((e) => e.products.isNotEmpty).toList();
-    });
   }
 
   @override
@@ -89,21 +73,29 @@ class _HomePageState extends State<HomePage> {
                 PainelCardItemModel.temperos(),
               ],
             ),
-            const SizedBox(height: 32),
-            ...((sections.length > 1)
-                ? sections.take(2).map((section) => SectionsWidget(section: section))
-                : const [
-                    SectionShimmerWidget(),
-                    SectionShimmerWidget(),
-                  ]),
-            BannerDividerWidget(
-              bannerDivider: BannerDividerItemModel.queridinhos(),
-            ),
-            if (sections.length > 3) ...sections.skip(2).take(2).map((section) => SectionsWidget(section: section)),
-            BannerDividerWidget(
-              bannerDivider: BannerDividerItemModel.hortifruti(),
-            ),
-            if (sections.length > 5) ...sections.skip(4).map((section) => SectionsWidget(section: section)),
+            ValueListenableBuilder<List<SectionsItemModel>>(
+                valueListenable: controller,
+                builder: (context, sections, child) {
+                  return Column(
+                    children: [
+                      const SizedBox(height: 32),
+                      ...((controller.sections.length > 1)
+                          ? controller.sections.take(2).map((section) => SectionsWidget(section: section))
+                          : const [
+                              SectionShimmerWidget(),
+                              SectionShimmerWidget(),
+                            ]),
+                      BannerDividerWidget(
+                        bannerDivider: BannerDividerItemModel.queridinhos(),
+                      ),
+                      if (controller.sections.length > 3) ...controller.sections.skip(2).take(2).map((section) => SectionsWidget(section: section)),
+                      BannerDividerWidget(
+                        bannerDivider: BannerDividerItemModel.hortifruti(),
+                      ),
+                      if (controller.sections.length > 5) ...controller.sections.skip(4).map((section) => SectionsWidget(section: section)),
+                    ],
+                  );
+                }),
           ],
         ),
       ),

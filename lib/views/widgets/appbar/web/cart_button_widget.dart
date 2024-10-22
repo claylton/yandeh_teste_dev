@@ -33,7 +33,11 @@ class CartButtonWidget extends StatelessWidget {
                       ),
                       Text(
                         '07.666.444/7773-29',
-                        style: TextStyle(color: ColorTheme.greyCNPJWebColor, fontWeight: FontWeight.w500, fontSize: 14),
+                        style: TextStyle(
+                          color: ColorTheme.greyCNPJWebColor,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
                       ),
                     ],
                   ),
